@@ -1,5 +1,5 @@
 class MECC {
-  constructor(w, h,tex,{tx=0,ty=0,tz=0,rx=0,ry=0,rz=0}) {
+  constructor(w, h,tex,{z=0,tx=0,ty=0,tz=0,rx=0,ry=0,rz=0}) {
   	rx = Math.PI*rx/180;
   	ry = Math.PI*ry/180;
   	rz = Math.PI*rz/180;
@@ -13,17 +13,15 @@ class MECC {
 	mesh.rotation.x += rx;
 	mesh.rotation.y += ry;
 	mesh.rotation.z += rz;
-	
+	this.plane = mesh;
 
-	/*
-	console.log(tx,ty,tz);
-	var mat = new THREE.MeshBasicMaterial({color: 0xffffff,map: tex} );
-	var p = new THREE.PlaneBufferGeometry(30,5);
-	var mesh  = new THREE.Mesh(p, mat);
-	mesh.material.side = THREE.DoubleSide;
-	mesh.position.x -= 5;
-	mesh.rotation.y += theta_90;*/
-	this.plane = mesh;	
+
+	var edgeLine = new THREE.BoxBufferGeometry( w, h, z ); 
+	var edges = new THREE.EdgesGeometry( edgeLine ); 
+	var line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0xffffff } ) );
+	this.line = line;
+
+	
   }
 }
 
