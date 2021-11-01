@@ -1,4 +1,4 @@
-cons_k = .1; 
+cons_k = 1; 
 function animationBuilder(direction) {
   return function animateRotate() {
     switch (direction) {
