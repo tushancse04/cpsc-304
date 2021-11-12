@@ -27,7 +27,7 @@ function mouse_event(){
 	                'XYZ'
 	            ));
 	        
-	        mesh_g.quaternion.multiplyQuaternions(deltaRotationQuaternion, mesh_g.quaternion);
+	        scene.quaternion.multiplyQuaternions(deltaRotationQuaternion, scene.quaternion);
 	    }
 	    
 	    previousMousePosition = {
