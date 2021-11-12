@@ -48,10 +48,11 @@ document.onkeydown = checkKey;
 
 setTimeout(function(){
   main();
-  requestAnimationFrame(update);
+  requestAnimationFrame(animate);
 }, 1000);
 
-function update () {
-  renderer.render(scene, camera);
-  requestAnimationFrame(update);  
+function animate () {
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
 }
+
